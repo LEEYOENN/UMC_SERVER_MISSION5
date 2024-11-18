@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import umc.study.domain.QStore;
 import umc.study.domain.Store;
 
-import java.math.BigInteger;
 import java.util.List;
 
 @Repository
@@ -24,7 +23,7 @@ public class StoreRepositoryImpl implements StoreRepositoryCustom {
             predicate.and(store.name.eq(name));
         }
 
-        if(store != null){
+        if(score != null){
             predicate.and(store.score.goe(4.0f));
         }
         return jpaQueryFactory
