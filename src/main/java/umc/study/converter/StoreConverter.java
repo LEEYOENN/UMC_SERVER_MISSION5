@@ -1,15 +1,13 @@
 package umc.study.converter;
 
-import org.springframework.stereotype.Component;
 import umc.study.domain.Region;
 import umc.study.domain.Store;
 import umc.study.web.dto.StoreRequestDTO;
 import umc.study.web.dto.StoreResponseDTO;
 
-@Component
 public class StoreConverter {
     //DTO -> Entity 변환
-    public Store toEntity(StoreRequestDTO.AddDTO dto, Region region){
+    public static Store toEntity(StoreRequestDTO.AddDTO dto, Region region){
         return Store.builder()
                 .name(dto.getName())
                 .address(dto.getAddress())
@@ -18,7 +16,7 @@ public class StoreConverter {
     }
 
     //Entity -> DTO
-    public StoreResponseDTO.AddResultDTO toResponseDTO(Store store){
+    public static StoreResponseDTO.AddResultDTO toResponseDTO(Store store){
         return StoreResponseDTO.AddResultDTO.builder()
                 .storeId(store.getId())
                 .storeName(store.getName())

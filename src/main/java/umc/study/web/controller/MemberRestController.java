@@ -14,7 +14,7 @@ import umc.study.service.MemberService.MemberCommandService;
 import umc.study.converter.MemberConverter;
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/members")
+@RequestMapping("/api/members")
 public class MemberRestController {
 
     private final MemberCommandService memberCommandService;

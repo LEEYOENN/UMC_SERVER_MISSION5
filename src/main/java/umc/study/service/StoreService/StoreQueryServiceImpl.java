@@ -20,7 +20,6 @@ public class StoreQueryServiceImpl implements StoreQueryService {
 
     private final StoreRepository storeRepository;
     private final RegionRepository regionRepository;
-    private final StoreConverter storeConverter;
 
     @Override
     public Optional<Store> findStore(Long id) {
@@ -42,7 +41,7 @@ public class StoreQueryServiceImpl implements StoreQueryService {
         Region region = regionRepository.findById(storeDTO.getRegionId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 지역 아이디입니다."));
         //store 엔티티 생성 및 저장
-        Store store = storeConverter.toEntity(storeDTO, region);
+        Store store = StoreConverter.toEntity(storeDTO, region);
 
         storeRepository.save(store);
         return store;
