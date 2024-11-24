@@ -20,13 +20,13 @@ import umc.study.web.dto.StoreResponseDTO;
 public class StoreRestController {
 
     private final StoreQueryService storeService;
-    private final StoreConverter storeConverter;
+
     @PostMapping
     public ApiResponse<StoreResponseDTO.AddResultDTO> addStore(@RequestBody @Valid StoreRequestDTO.AddDTO request){
         Store store = storeService.addStore(request);
 
         //AddRequestDTO생성
-        return ApiResponse.onSuccess(storeConverter.toResponseDTO(store));
+        return ApiResponse.onSuccess(StoreConverter.toResponseDTO(store));
     }
 
 }
