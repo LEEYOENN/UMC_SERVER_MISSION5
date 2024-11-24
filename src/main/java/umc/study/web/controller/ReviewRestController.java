@@ -23,7 +23,7 @@ public class ReviewRestController {
     @Autowired
     private ReviewQueryService reviewQueryService;
 
-    @PostMapping
+    @PostMapping("/")
     @Operation(summary = "리뷰 추가", description = "가게에 리뷰를 추가합니다.")
     public ApiResponse<ReviewResponseDTO.AddResultDTO> addReview(@RequestBody @Valid ReviewRequestDTO.AddDTO request) {
 

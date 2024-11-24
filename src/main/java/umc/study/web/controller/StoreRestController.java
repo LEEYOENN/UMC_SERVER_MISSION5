@@ -21,7 +21,7 @@ public class StoreRestController {
 
     private final StoreQueryService storeService;
 
-    @PostMapping
+    @PostMapping("/")
     public ApiResponse<StoreResponseDTO.AddResultDTO> addStore(@RequestBody @Valid StoreRequestDTO.AddDTO request){
         Store store = storeService.addStore(request);
 
