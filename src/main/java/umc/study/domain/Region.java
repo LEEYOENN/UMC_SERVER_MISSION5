@@ -1,6 +1,7 @@
 package umc.study.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
 
