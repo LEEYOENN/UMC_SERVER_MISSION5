@@ -30,6 +30,7 @@ public class MemberMissionConverter {
                 .build();
     }
 
+    //진행중인 미션 dto로 마꾸는 컨버터
     public static MemberMissionResponseDTO.MissionPreViewDTO toMissionPreviewDTO(MemberMission mission){
         return MemberMissionResponseDTO.MissionPreViewDTO.builder()
                 .storeName(mission.getMission().getStore().getName())
@@ -39,14 +40,14 @@ public class MemberMissionConverter {
                 .build();
 
     }
-
+    //진행중인 미션 dto 리스트로 바꾸는 컨버터
     public static MemberMissionResponseDTO.MissionPreViewListDTO toMissionPreviewListDTO(Page<MemberMission> myMissionList){
         List<MemberMissionResponseDTO.MissionPreViewDTO> myMissionPreViewDTOList = myMissionList.stream()
                 .map(MemberMissionConverter::toMissionPreviewDTO).collect(Collectors.toList());
 
         return MemberMissionResponseDTO.MissionPreViewListDTO.builder()
                 .missionList(myMissionPreViewDTOList)
-                .listSize(myMissionList.getNumberOfElements())
+                .listSize(myMissionPreViewDTOList.size())
                 .totalPage(myMissionList.getTotalPages())
                 .totalElements(myMissionList.getTotalElements())
                 .isFirst(myMissionList.isFirst())
