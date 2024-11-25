@@ -38,6 +38,7 @@ public class StoreRestController {
     private final StoreQueryService storeService;
 
     @PostMapping("/")
+    @Operation(summary = "새로운 가게 등록 API",description = "새로운 가게를 등록하는 API입니다.")
     public ApiResponse<StoreResponseDTO.AddResultDTO> addStore(@RequestBody @Valid StoreRequestDTO.AddDTO request){
         Store store = storeService.addStore(request);
 
