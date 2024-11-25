@@ -15,7 +15,7 @@ import umc.study.web.dto.MemberMissionRequestDTO;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class MemberMissionService {
+public class MemberMissionQueryServiceImpl implements MemberMissionQueryService {
 
     private final MissionRepository missionRepository;
     private final MemberRepository memberRepository;

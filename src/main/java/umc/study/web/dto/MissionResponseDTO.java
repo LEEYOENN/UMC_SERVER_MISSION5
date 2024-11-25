@@ -1,6 +1,9 @@
 package umc.study.web.dto;
 
 import lombok.*;
+import umc.study.domain.enums.MissionStatus;
+
+import java.util.List;
 
 public class MissionResponseDTO {
 
@@ -12,4 +15,6 @@ public class MissionResponseDTO {
     public static class AddResultDTO {
         Long missionId;
     }
+
+
 }
