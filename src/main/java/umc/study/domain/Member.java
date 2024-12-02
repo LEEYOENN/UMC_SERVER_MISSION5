@@ -87,7 +87,7 @@ public class Member extends BaseEntity {
         return "Member [id=" + id + ", name=" + name + ", address=" + address;
     }
 
-    public void encodePassword(String password){
+    public void encodePassword(String password) {
         this.password = password;
     }
 

@@ -10,15 +10,15 @@ import org.springframework.security.web.SecurityFilterChain;
 
 //우리 애플리케이션의 보안 정책을 정의하는 곳
 //"이 URL은 누구나 접근 가능하고, 저 URL은 관리자만 접근 가능해"
-
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
+
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, CustomOAuth2UserService customOAuth2UserService) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home", "/admin/**", "/signup", "/members/signup", "/css/**").permitAll()
+                        .requestMatchers("/", "/home", "/signup", "/members/signup", "/css/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
