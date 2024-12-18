@@ -18,14 +18,13 @@ dependencies {
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
- 	implementation 'org.hibernate.orm:hibernate-core:6.0.2.Final'  // Hibernate 6.0.2 이상
-	implementation 'mysql:mysql-connector-java:8.0.33' // MySQL 드라이버 추가
+	implementation 'org.hibernate.orm:hibernate-core:6.0.2.Final'
+	implementation 'mysql:mysql-connector-java:8.0.33'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	testImplementation 'org.springframework.security:spring-security-test'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE'
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-
 
 	// queryDSL
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
@@ -37,42 +36,28 @@ dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.3'
 	implementation 'com.fasterxml.jackson.core:jackson-core:2.13.3'
 
-
 	compileOnly 'org.projectlombok:lombok:1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
-
-	//implementation 'org.hibernate:hibernate-core:5.6.9.Final'
-
-	implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
-	implementation 'org.springdoc:springdoc-openapi-data-rest:1.6.9'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-sourceSets {
-	main {
-		java {
-			srcDirs = ['src/main/java', 'src/main/resources']
-		}
-	}
-}
-
-tasks.named('test') {
-	useJUnitPlatform()
-}
-
-// Querydsl 설정부
-def generated = 'src/main/generated'
+def generated = 'build/generated/querydsl'
 
 querydsl {
 	jpa = true
 	querydslSourcesDir = generated
 }
+
 sourceSets {
-	main.java.srcDir generated
+	main {
+		java {
+			srcDirs += generated
+		}
+	}
 }
 
-compileQuerydsl{
+compileQuerydsl {
 	options.annotationProcessorPath = configurations.querydsl
 }
 
@@ -81,4 +66,8 @@ configurations {
 		extendsFrom annotationProcessor
 	}
 	querydsl.extendsFrom compileClasspath
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
 }
