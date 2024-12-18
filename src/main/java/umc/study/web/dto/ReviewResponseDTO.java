@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewResponseDTO {
@@ -23,7 +24,9 @@ public class ReviewResponseDTO {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class ReviewPreviewListDTO{
-        List<ReviewPreviewDTO> reviewList;
+
+        @Builder.Default
+        List<ReviewPreviewDTO> reviewList = new ArrayList<>(); // 기본값 설정
         Integer listSize;
         Integer totalPage;
         Long totalElements;
