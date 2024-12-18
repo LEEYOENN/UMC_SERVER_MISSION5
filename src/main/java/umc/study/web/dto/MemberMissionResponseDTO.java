@@ -3,6 +3,7 @@ package umc.study.web.dto;
 import lombok.*;
 import umc.study.domain.enums.MissionStatus;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MemberMissionResponseDTO {
@@ -22,7 +23,10 @@ public class MemberMissionResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class MissionPreViewListDTO {
-        List<MissionPreViewDTO> missionList;
+
+        @Builder.Default
+        List<MissionPreViewDTO> missionList = new ArrayList<>();
+
         Integer listSize;
         Integer totalPage;
         Long totalElements;
