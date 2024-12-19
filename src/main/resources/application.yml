@@ -11,7 +11,7 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
         show_sql: true
         format_sql: true
         use_sql_comments: true
@@ -27,7 +27,7 @@ spring:
             client-authentication-method: client_secret_post
             client-id: a54fd5d7bc4f9f7073cea0963cbb72be
             client-secret: TvBnf620w4HRRwsQem7iW6rUB3kSzXU3
-            redirect-uri: http://54.160.8.199:8080/login/oauth2/code/kakao
+            redirect-uri: http://52.78.176.186:8080/login/oauth2/code/kakao
             authorization-grant-type: authorization_code
             scope: profile_nickname
             client-name: Kakao

@@ -6,7 +6,6 @@ import org.springframework.test.context.ContextConfiguration;
 import umc.study.StudyApplication;
 
 @SpringBootTest
-@ContextConfiguration(classes = {StudyApplication.class})
 
 class ApplicationTests {
 
