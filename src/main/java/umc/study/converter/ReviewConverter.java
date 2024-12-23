@@ -1,8 +1,10 @@
 package umc.study.converter;
 
 import org.springframework.data.domain.Page;
+import org.springframework.web.multipart.MultipartFile;
 import umc.study.domain.Member;
 import umc.study.domain.Review;
+import umc.study.domain.ReviewImage;
 import umc.study.domain.Store;
 import umc.study.web.dto.ReviewRequestDTO;
 import umc.study.web.dto.ReviewResponseDTO;
@@ -52,6 +54,13 @@ public class ReviewConverter {
                 .totalElements(reviewList.getTotalElements())
                 .listSize(reviewPreViewDTOList.size())
                 .reviewList(reviewPreViewDTOList)
+                .build();
+    }
+
+    public static ReviewImage toReviewImage(String pictureUrl, Review review) {
+        return ReviewImage.builder()
+                .imageUrl(pictureUrl)
+                .review(review)
                 .build();
     }
 }
